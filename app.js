@@ -18,11 +18,9 @@ function addTodo(){
     }else{
         todos.push({text:todoText,completed: false})
         saveTodos();
-        console.log(todos)
-    }
-    
-
-    
+        rander();
+        inputTodo.value="";
+    }   
 }
 
 // Save todo
@@ -30,23 +28,57 @@ function saveTodos(){
 localStorage.setItem("todos", JSON.stringify(todos));
 }
 // Delete todos function
-function deleteTodos(){
-    console.log("Hit DeleteTodos")
+function deleteTodos(index){
+    console.log("Hit DeleteTodos");
+    todos.splice(index,1);
+    saveTodos();
+    rander();
 }
 
 // Rander Function
 function rander(){
     console.log("Hit rander")
     console.log(todos)
+    todoUl.innerHTML = ""
 
     //Creat todos list(loop)
-    todos.forEach(todos => {
+    todos.forEach((todos,index) => {
         // console.log(todos)
+        // console.log(index)
         let todoLi = document.createElement("li");
         todoUl.appendChild(todoLi);
+
+        let cheakBox = document.createElement("input");
+        cheakBox.type = "checkbox";
+        cheakBox.checked = todos.completed;
+        cheakBox.addEventListener("change",()=>{CheakboxTougle(todos)})
+        todoLi.appendChild(cheakBox);
+
         let todoPara = document.createElement("p");
         todoLi.appendChild(todoPara);
         todoPara.innerText = todos.text;
+        if(todos.completed===true){todoPara.style.textDecoration="line-through"}
+
+        let delBtn = document.createElement("button");
+        delBtn.innerHTML ="Delete"
+        todoLi.appendChild(delBtn)
+        delBtn.addEventListener("click",(e)=>{
+            deleteTodos(index);
+        })
     });
 }
 rander();
+// Global func
+function globalFunc(){
+    console.log(todos);
+}
+
+// Cheakbox tougle function
+function CheakboxTougle(todos){
+            console.log(todos.text);
+            if(todos.completed === false){
+               todos.completed = true; 
+            }else{todos.completed = false}
+            saveTodos()
+            rander()
+}
