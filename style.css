@@ -1,0 +1,138 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* CSS Variables */
+:root{
+    /* Colour */
+    --primary-color: #4CAF50;
+    --secondary-color: #bdc3c7;
+    --font-color: ##2c3e50;
+    --white-color: #ffffff;
+    /* Font family */
+    --primary-font: 'Open Sans', sans-serif;
+}
+
+/* Reset CSS */
+*::after,*::before,*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+
+/* Main Container */
+.main-container{
+    width: 1120px;
+    margin: 50px auto;
+    background-color: var(--white-color);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
+.main-container h1{
+    color: var(--font-color);
+    font-family: "Bagel Fat One", system-ui;
+    font-size: 48px;
+    font-weight: 200;
+}
+/* Upper input Area and add button */
+.input-container{
+    background-color: var(--secondary-color);
+    width: 80%;
+    height: 60px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.input-container input{
+    width: 70%;
+    height: 95%;
+    border: none;
+    background-color: var(--secondary-color);
+    font-size: 18px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+}
+.input-container input::placeholder { 
+    color: var(--font-color);
+    opacity: 0.5;
+}
+.input-container input:active, .input-container input:focus{
+    outline: none;
+    background-color: var(--secondary-color);
+}
+
+.input-container button{
+    width: 15%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 18px;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    cursor: pointer;
+}
+.input-container button:hover{
+    background-color: #45a049;
+}
+.input-container button i{
+    font-size: 20px;
+    color: rgb(71, 69, 69);
+}
+
+/* Todo List Container (Todo iteam) */
+.todo-container{
+    width: 80%;
+    /* background-color: yellow; */
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.todo-iteam{
+    box-sizing: border-box;
+    width: 99%;
+    min-height: 60px;
+    margin: 5px auto;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-iteam .iteam-cheakbox{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.todo-iteam .iteam-text{ 
+    width: 75%;
+    font-size: 20px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--font-color);
+}
+.todo-iteam .iteam-edit-btn{
+    font-size: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.todo-iteam .iteam-delete-btn{
+    font-size: 28px;
+    cursor: pointer;
+    background:none;
+    border:none;
+}
