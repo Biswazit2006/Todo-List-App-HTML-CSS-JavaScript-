@@ -7,7 +7,7 @@ let todoUl = document.getElementById("todoUl");
 let saved = localStorage.getItem("todos");
 let todos = saved ? JSON.parse(saved) : [];
 
-// Save todos funtion
+// Add todos funtion
 addTodoBtn.addEventListener("click", addTodo);
 inputTodo.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -27,10 +27,11 @@ function addTodo() {
   }
 }
 
-// Save todo
+// Save todo function
 function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
 // Delete todos function
 function deleteTodos(index) {
   console.log("Hit DeleteTodos");
@@ -74,6 +75,10 @@ function rander() {
     editBtn.className="iteam-edit-btn"
     editBtn.innerHTML=`<i class="fa-regular fa-pen-to-square"></i>`
     todoLi.appendChild(editBtn);
+    editBtn.addEventListener("click",(e)=>{
+      editTodo(index);
+      console.log(index);
+    })
 
     let delBtn = document.createElement("button");
     // delBtn.innerHTML = "Delete";
@@ -102,3 +107,21 @@ function CheakboxTougle(todos) {
   saveTodos();
   rander();
 }
+// Edit todo function
+function editTodo(index){
+  console.log("p for edit" + index);
+  console.log("Hit edit todo")
+  inputTodo.value=todos[index].text;
+  addTodoBtn.innerHTML="Done"
+  addTodoBtn.addEventListener("click",()=>{done(index)})
+}
+// Function done
+  function done(index){
+  
+  // todos[index].text ="EDDITING"
+  // todos[index].text = inputTodo.value;
+  console.log(inputTodo.value)
+  console.log(todos)
+  // console.log(todos[index].text)
+  addTodoBtn.innerHTML="add todo";
+  }
