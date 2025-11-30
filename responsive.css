@@ -22,57 +22,57 @@
     font-weight: 100;
     text-align: center;
   }
-    /* Upper input Area and add button */
-    .input-container {
+  /* Upper input Area and add button */
+  .input-container {
     width: 99%;
     height: 60px;
     padding: 0px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
-}
-.input-container input{
+  }
+  .input-container input {
     width: 70%;
     font-size: 18px;
     font-weight: 500;
-}
-.input-container button{
+  }
+  .input-container button {
     width: 25%;
     height: 70%;
     border-radius: 8px;
     font-size: 15px;
     /* padding: 6px 10px; */
     font-weight: 700;
-}
-.input-container button i{
+  }
+  .input-container button i {
     display: none;
-}
-/* Todo List Container (Todo iteam) */
-.todo-container{
+  }
+  /* Todo List Container (Todo iteam) */
+  .todo-container {
     width: 100%;
     height: auto;
     border-radius: 0;
     /* background-color: antiquewhite; */
-}
-.todo-iteam{
+  }
+  .todo-iteam {
     width: 100%;
     min-height: 50px;
     border-radius: 8px;
-}
-.todo-iteam .iteam-cheakbox{
+  }
+  .todo-iteam .iteam-cheakbox {
     width: 5%;
     margin-left: 10px;
     margin-right: 10px;
-}
-.todo-iteam .iteam-text{ 
+  }
+  .todo-iteam .iteam-text {
     width: 79%;
     font-size: 18px;
-}
-.todo-iteam .iteam-edit-btn{
+  }
+  .todo-iteam .iteam-edit-btn {
     width: 8%;
     font-size: 22px;
-}
-.todo-iteam .iteam-delete-btn{
+  }
+  .todo-iteam .iteam-delete-btn {
     width: 8%;
     font-size: 22px;
-}
+  }
 }
