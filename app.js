@@ -1,4 +1,4 @@
-// DOM
+// DOM Nodes
 let inputTodo = document.getElementById("inputTodo");
 let addTodoBtn = document.getElementById("addTodoBtn");
 let todoUl = document.getElementById("todoUl");
@@ -15,7 +15,6 @@ inputTodo.addEventListener("keypress", (e) => {
   }
 });
 function addTodo() {
-  console.log("Hit addTodo");
   let todoText = inputTodo.value;
   if (todoText === "") {
     console.log("Empty todo cannot save");
@@ -34,7 +33,6 @@ function saveTodos() {
 
 // Delete todos function
 function deleteTodos(index) {
-  console.log("Hit DeleteTodos");
   todos.splice(index, 1);
   saveTodos();
   rander();
@@ -42,14 +40,10 @@ function deleteTodos(index) {
 
 // Rander Function
 function rander() {
-  console.log("Hit rander");
-  console.log(todos);
   todoUl.innerHTML = "";
 
   //Creat todos list(loop)
   todos.forEach((todos, index) => {
-    // console.log(todos)
-    // console.log(index)
     let todoLi = document.createElement("li");
     todoLi.className = "todo-iteam";
     todoUl.appendChild(todoLi);
@@ -77,11 +71,9 @@ function rander() {
     todoLi.appendChild(editBtn);
     editBtn.addEventListener("click", (e) => {
       editTodo(index);
-      console.log(index);
     });
 
     let delBtn = document.createElement("button");
-    // delBtn.innerHTML = "Delete";
     delBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
     delBtn.className = "iteam-delete-btn";
     todoLi.appendChild(delBtn);
@@ -91,14 +83,9 @@ function rander() {
   });
 }
 rander();
-// Global func
-function globalFunc() {
-  console.log(todos);
-}
 
 // Cheakbox tougle function
 function CheakboxTougle(todos) {
-  console.log(todos.text);
   if (todos.completed === false) {
     todos.completed = true;
   } else {
@@ -107,24 +94,17 @@ function CheakboxTougle(todos) {
   saveTodos();
   rander();
 }
+
 // Edit todo function
 function editTodo(index) {
-  console.log("p for edit" + index);
-  console.log("Hit edit todo");
   inputTodo.value = todos[index].text;
   addTodoBtn.innerHTML = "Done";
-  addTodoBtn.addEventListener("click", () => {
-    done(index);
-  });
-}
-// Function done
-function done(index) {
-  // todos[index].text ="EDDITING"
-  // todos[index].text = inputTodo.value;
-  console.log(inputTodo.value);
-  console.log(todos);
-  // console.log(todos[index].text)
-  addTodoBtn.innerHTML = "add todo";
-}
+  addTodoBtn.onclick = null; // Remove previous event listeners
 
-console.log("updated done");
+  addTodoBtn.addEventListener("click", () => {
+    deleteTodos(index);
+    addTodoBtn.innerHTML = "Add Todo <i class=\"fa-solid fa-file-circle-plus\"></i>";
+    addTodoBtn.onclick = null; // Reset the button
+    addTodoBtn.addEventListener("click", addTodo);// Re-attach original listener
+  });
+};
